@@ -19,11 +19,16 @@ post '/receive' do
 
 	if x.save
 		@url = x
+		{
+			long_url: @url.long_url,
+			short_url: @url.short_url,
+			click_count: @url.click_count
+		}.to_json #can copy to terminal, get link
 	else
 		@urle = x
 	end
 
-  	erb :"static/index"
+  	# erb :"static/index"
 end
 
 get '/Nick/:short_url' do 

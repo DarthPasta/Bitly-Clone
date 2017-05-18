@@ -1,5 +1,6 @@
 
-<form action="/receive" method="post">
+
+<form id="url-form" action="/receive" method="post">
 
 <div id="shortener">
 
@@ -34,14 +35,16 @@
 				<td>Shortened Link</td>
 				<td>Click Count</td>
 			</thead>
-			<% @urls.each do |x| %>
+			<tbody>
+				<% @urls.each do |x| %>
 
-			<tr>
-				<td class="content"><%=x.long_url%></td>
-				<td class="short"><%=x.short_url%></td>
-				<td class="short"><%=x.click_count%></td>
-			</tr>
-			<% end %>
+				<tr id="links">
+					<td class="content"><%=x.long_url%></td>
+					<td class="short"><%=x.short_url%></td>
+					<td class="short"><%=x.click_count%></td>
+				</tr>
+				<% end %>
+			</tbody>
 		</table>
 	
 	</div>
