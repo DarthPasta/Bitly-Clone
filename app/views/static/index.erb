@@ -1,0 +1,50 @@
+
+<form action="/receive" method="post">
+
+<div id="shortener">
+
+	<p>Enter URL:</p>
+	<input type="text" name="long_url" value="<%=@url.long_url if @url %>">
+	<% if @url %>
+		
+		<p class="input">
+			Your result URL: <a href="<%= @url.short_url %>">localhost:9393/<%= @url.short_url %></a>
+		</p>
+	<% end %>
+	<!-- <input type="text" name="short_url" value="<%=@url.short_url if @url %>"> -->
+	<input class="submit" type="submit" value="Submit">
+
+<% if @urle %>
+<ul>
+	<% if @urle.errors.any? %>
+		<% @urle.errors.full_messages.each do |msg| %>
+			<li class="errors"><%= msg %></li>
+		<% end %>
+	<% end %>
+<% end %> 
+</ul>
+
+</form>
+</div>
+
+	<div id="index-container">
+		<table id="t-index">
+			<thead id="t-index-head">
+				<td>Original Link</td>
+				<td>Shortened Link</td>
+				<td>Click Count</td>
+			</thead>
+			<% @urls.each do |x| %>
+
+			<tr>
+				<td class="content"><%=x.long_url%></td>
+				<td class="short"><%=x.short_url%></td>
+				<td class="short"><%=x.click_count%></td>
+			</tr>
+			<% end %>
+		</table>
+	
+	</div>
+
+
+
